@@ -59,7 +59,12 @@ DataFile = cbind(residuals, fitvals)
 DataFile = as.data.frame(DataFile)
 
 
-ggplot(data = DataFile, aes(x = fitvals, y = residuals))+geom_point(shape = 5, col = "black", size = 1) + geom_hline(yintercept = 0, col = "red", linetype = "dashed") + ggtitle(label  = "Residual versus Fitted Values") + xlab(label = "Fitted Values") + ylab(label = "Residuals")
+ggplot(data = DataFile, aes(x = fitvals, y = residuals))+
+  geom_point(shape = 5, col = "black", size = 1) + 
+  geom_hline(yintercept = 0, col = "red", linetype = "dashed") + 
+  ggtitle(label  = "Residual versus Fitted Values") + 
+  xlab(label = "Fitted Values") + 
+  ylab(label = "Residuals")
 
 
 
