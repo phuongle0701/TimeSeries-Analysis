@@ -16,13 +16,13 @@ print(x)
 x = ts(x) 
 
 plot(x, type = "b", main = "Time Series Plot of Quakes Data")
-lag1.plot(series = x, max.lag = 1)
+lag1.plot(series = x, 1)
 
 
 ### Plot of autocorrelation function: 
 
 ## acf for x from lag1 to lag20: 
-acf(x, xlim = c(1,20))
+acf(x, xlim = c(1,20), main = "ACF of series Quakes")
 
 ### Lag1 of x: 
 xlag1 = lag(x, -1)
@@ -52,5 +52,11 @@ DF_assumption = cbind(Resval, Fitval)
 DF_assumption = as.data.frame(DF_assumption)
 
 Plot1 = ggplot(data = DF_assumption, 
-               mapping = aes(x = Fitval, y = Resval)) + geom_point(col = 'blue', size = 1, shape = 5) + ggtitle(label = "Plot of Residuals versus Fitted values") + xlab(label = "Fitted Values") + ylab(label = "Residual Values") + theme_base() + geom_hline(yintercept = 0, col = "red", size = 0.5, linetype = "dashed")
+               mapping = aes(x = Fitval, y = Resval)) + 
+  geom_point(col = 'blue', size = 1, shape = 5) + 
+  ggtitle(label = "Plot of Residuals versus Fitted values") + 
+  xlab(label = "Fitted Values") + 
+  ylab(label = "Residual Values") + 
+  theme_base() + 
+  geom_hline(yintercept = 0, col = "red", size = 0.5, linetype = "dashed")
 print(Plot1)
